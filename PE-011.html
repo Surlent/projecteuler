@@ -1,0 +1,82 @@
+<html>
+<head>
+<script type="text/javascript" src="jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="functions.js"></script>
+<style>
+input
+{
+	margin:10px 0;
+}
+</style>
+</head>
+<body>
+	<center style="margin-top:300px;">
+		<div>
+			<center>
+				<h3>Problem 11 - Highest Product of N Numbers on Grid</h3>
+			</center>
+			<input type="file"/ id="file_input">
+			<br/>
+			<textarea placeholder="Input grid" id="input" onblur="resize_text_area($(this));"/></textarea>
+			<br/>
+			<input type="text" style="width:50px;" placeholder="N" id="N"/>
+			<input type="button" value="Show Highest Product" onclick="show_highest_product_grid();">
+			<br/>
+			Result: <input type="text" value="" id="result" disabled/>
+			<br/>
+			Time: <input type="text" value="" id="time" disabled/>
+		</div>
+	</center>
+</body>
+</html>
+<script>
+	function readSingleFile(evt) 
+	{
+		var f = evt.target.files[0]; 
+		if (f) {
+		  var r = new FileReader();
+		  r.onload = function(e) { 
+			  var contents = e.target.result; 
+			  $("#input").val(contents);
+			  resize_text_area($("#input"));
+		  }
+		  r.readAsText(f);
+		} else { 
+		  console.log("Failed to load file");
+		}
+	}
+	if (window.File && window.FileReader && window.FileList && window.Blob) {
+	  document.getElementById('file_input').addEventListener('change', readSingleFile, false);
+	} else {
+	  console.log('The File APIs are not fully supported by your browser.');
+	}
+	function resize_text_area(object)
+	{
+		if(object.val()!="")
+		{
+			var pre_matrix=object.val().split("\n");
+			var matrix=new Array(pre_matrix.length-1);
+			for(var i=0;i<pre_matrix.length-1;i++)
+			{
+				matrix[i]=pre_matrix[i].split(" ");
+			}		
+			object.attr("rows",matrix.length);
+			object.css("width",matrix[0].length*30+"px");
+		}
+	}
+	function show_highest_product_grid()
+	{
+		var n=$("#N").val();
+		var start = window.performance.now();
+		var pre_matrix=$("#input").val().split("\n");
+		var matrix=new Array(pre_matrix.length-1);
+		for(var i=0;i<pre_matrix.length-1;i++)
+		{
+			matrix[i]=pre_matrix[i].split(" ");
+		}		
+		var result=highest_product_grid(matrix,parseInt(n));
+		$('#result').val(result[0]);
+		console.log(result[1]);
+		$('#time').val(format_time((window.performance.now()-start)));
+	}
+</script>

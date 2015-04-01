@@ -28,9 +28,9 @@ input
 <script>
 	function show_pythagorean_triplet(n)
 	{
-		var start = $.now();
+		var start = window.performance.now();
 		var result=pythagorean_triplet(parseInt(n));
 		$('#result').val(result);
-		$('#time').val(($.now()-start)+'ms');
+		$('#time').val(format_time((window.performance.now()-start)));
 	}
 </script>

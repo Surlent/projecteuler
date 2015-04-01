@@ -28,9 +28,9 @@ input
 <script>
 	function show_sum_primes(n)
 	{
-		var start = $.now();
+		var start = window.performance.now();
 		var result=sum_primes(parseInt(n));
 		$('#result').val(result);
-		$('#time').val(($.now()-start)+'ms');
+		$('#time').val(format_time((window.performance.now()-start)));
 	}
 </script>
