@@ -1,0 +1,42 @@
+<html>
+<head>
+<script type="text/javascript" src="jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="functions.js"></script>
+<style>
+input
+{
+	margin:10px 0;
+}
+</style>
+</head>
+<body>
+	<center style="margin-top:300px;">
+		<div>
+			<center>
+				<h3>Problem 2 - Sum of multiples of factors below n in Fibonacci sequence</h3>
+			</center>
+			<input type="text" placeholder="Input n" value="" id="n"/>
+			<br/>
+			<input type="text" placeholder="Comma-separated factors" value="" id="factors"/>
+			<br/>
+			<input type="button" value="Sum multiples in Fibonacci" onclick="show_sum_multiples_fibonacci();">
+			<br/>
+			Result: <input type="text" value="" id="result" disabled/>
+			<br/>
+			Time: <input type="text" value="" id="time" disabled/>
+		</div>
+	</center>
+</body>
+</html>
+<script>
+	function show_sum_multiples_fibonacci()
+	{
+		var n=$('#n').val();
+		var factors=$('#factors').val().split(",");
+		console.log(factors);
+		var start = window.performance.now();
+		var result=sum_multiples_fibonacci(parseInt(n),factors);
+		$('#result').val(result);
+		$('#time').val(format_time((window.performance.now()-start)));
+	}
+</script>

@@ -1,3 +1,4 @@
+// Auxiliary
 function format_time(time)
 {
 	var split_time=time.toString().split(".");
@@ -43,7 +44,87 @@ function primes_list(n)
 	}
 	return primes_list;
 }
- 
+function dot_product(a,b)
+{
+   if(a.length=b.length)
+   {
+   		var dot=0;
+   		for(k=0;k<a.length;k++)
+   		{
+   			dot+=a[k]*b[k];
+   		}
+   		return dot;
+   }
+   else
+   {
+   	   return false;
+   	   console.log("Vectors have different size.");
+   }
+}
+function is_right_triangle(p1,p2,p3)
+{	
+	var v1=[p1[0]-p3[0],p1[1]-p3[1]];
+	var v2=[p2[0]-p3[0],p2[1]-p3[1]];
+	var v3=[p2[0]-p1[0],p2[1]-p1[1]];
+	if((dot_product(v1,v2)==0)||(dot_product(v1,v3)==0)||(dot_product(v2,v3)==0))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+// End of auxiliary
+
+// Number 1
+function sum_multiples(n,factors)
+{
+	var sum=0;
+	var list=[];
+	for (var k=1;k<n;k++)
+	{
+		for(var j=0;j<factors.length;j++)
+		{
+			if((k%factors[j])==0)
+			{
+				//list.push(k);
+				sum+=k;
+				break;
+			}
+		}
+	}
+	//console.log(list);
+	return sum;
+}
+// End of Number 1
+
+// Number 2
+function sum_multiples_fibonacci(n,factors)
+{
+	var sum=0;
+	var f_prev=0;
+	var f_curr=1;
+	var list=[];
+	while(f_curr<=n)
+	{
+		for(var j=0;j<factors.length;j++)
+		{
+			if((f_curr%factors[j])==0)
+			{
+				list.push(f_curr);
+				sum+=f_curr;
+				break;
+			}
+		}
+		var f_curr_old=f_curr;
+		f_curr=f_curr+f_prev;
+		f_prev=f_curr_old;
+	}
+	console.log(list);
+	return sum;
+}
+// End of Number 2
 // Number 3
 function largest_prime_factor(n) {
  var min_factor = least_factor(n);
@@ -353,3 +434,67 @@ function highest_product_grid(matrix,n)
 	return [highest_product,best_indexes];
 }
 // End of Number 11
+
+// Number 91
+function count_right_triangles(n)
+{
+	var m=n+1;
+	//var linear_grid = new Array(n*n);
+	var m_sqr=m*m;
+	var count=0;
+	var list=[];
+	for(var k1=1;k1<m_sqr-1;k1++)
+	{
+		for(var k2=k1+1;k2<m_sqr;k2++)
+		{			
+			var p1=[k1%m,(k1-(k1%m))/m];
+			var p2=[k2%m,(k2-(k2%m))/m];			
+			if (is_right_triangle([0,0],p1,p2))
+			{
+				count++;
+			}
+		}
+	}
+	//console.log(list);
+	return count;
+}
+
+function count_right_triangles_v2(n)
+{
+	var m=n+1;
+	//var linear_grid = new Array(n*n);
+	var m_sqr=m*m;
+	var count=0;
+	var list=[];
+	for(var k1=0;k1<m;k1++)
+	{
+		for(var k2=0;k2<m;k2++)
+		{		
+			if(k1!=0||k2!=0)
+			{	
+				for(var l1=0;l1<m;l1++)
+				{
+					for(var l2=0;l2<m;l2++)
+					{
+						if(l1!=0||l2!=0)
+						{
+							if (k1!=l1||k2!=l2)
+							{
+								var p1=[k1,k2];
+								var p2=[l1,l2];
+								//console.log([[0,0],p1,p2])
+								if (is_right_triangle([0,0],p1,p2))
+								{
+									count++;
+								}
+							}							
+						}						
+					}	
+				}
+			}
+		}
+	}
+	//console.log(list);
+	return count/2;
+}
+// End of Number 91
