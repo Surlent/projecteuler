@@ -5,9 +5,15 @@ function format_time(time)
 	{
 		var significand=split_time[0].substr(0,12);
 		var mantissa=split_time[1].substr(0,6);
-		return significand+","+mantissa+"ms";
+		if(significand.length>=4)
+		{
+			var new_significand=significand.substr(0,significand.length-3);
+			var new_mantissa=significand.substr(significand.length-3,significand.length);
+			return new_significand+","+(new_mantissa+mantissa).substr(0,6)+"s";
+		}
+		else return significand+","+mantissa+"ms";
 	}
-	else return split_time+"ms";
+	else return split_time;
 }
 function is_prime(n)
 {

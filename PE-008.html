@@ -1,0 +1,73 @@
+<html>
+<head>
+<script type="text/javascript" src="jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="functions.js"></script>
+<script type="text/javascript" src="PE-008.js"></script>
+<style>
+input
+{
+	margin:10px 0;
+}
+</style>
+</head>
+<body>
+	<center style="margin-top:300px;">
+		<div>
+			<center>
+				<h3>Problem 8 - Greatest product of n adjacent numbers on grid</h3>
+			</center>
+			<input type="file"/ id="file_input">
+			<br/>
+			<textarea placeholder="Input grid" id="input" onblur="resize_text_area($(this));"/></textarea>
+			<br/>
+			<input type="text" style="width:50px;" placeholder="n" id="n"/>
+			<br/>
+			<input type="button" value="Show Highest Product" onclick="show_greatest_adjacent_product();">
+			<br/>
+			Result: <input type="text" value="" id="result" disabled/>
+			<br/>
+			Time: <input type="text" value="" id="time" disabled/>
+		</div>
+	</center>
+</body>
+</html>
+<script>
+	function readSingleFile(evt) 
+	{
+		var f = evt.target.files[0]; 
+		if (f) {
+		  var r = new FileReader();
+		  r.onload = function(e) { 
+			  var contents = e.target.result; 
+			  $("#input").val(contents);
+			  resize_text_area($("#input"));
+		  }
+		  r.readAsText(f);
+		} else { 
+		  console.log("Failed to load file");
+		}
+	}
+	if (window.File && window.FileReader && window.FileList && window.Blob) {
+	  document.getElementById('file_input').addEventListener('change', readSingleFile, false);
+	} else {
+	  console.log('The File APIs are not fully supported by your browser.');
+	}
+	function resize_text_area(object)
+	{
+		if(object.val()!="")
+		{			
+			var text_lines=object.val().split("\n");
+			object.attr("rows",text_lines.length);
+			object.attr("cols",(text_lines[0].length>50)?(50):(text_lines[0].length));
+		}
+	}
+	function show_greatest_adjacent_product()
+	{
+		var n=$("#n").val();
+		var start = window.performance.now();
+		var number=$("#input").val().replace(/(\r\n|\n|\r)/gm,"");	
+		var result=greatest_adjacent_product(number,parseInt(n));
+		$('#result').val(result);
+		$('#time').val(format_time((window.performance.now()-start)));
+	}
+</script>
