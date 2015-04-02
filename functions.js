@@ -1,4 +1,3 @@
-// Auxiliary
 function format_time(time)
 {
 	var split_time=time.toString().split(".");
@@ -75,4 +74,3 @@ function is_right_triangle(p1,p2,p3)
 		return false;
 	}
 }
-// End of auxiliary
