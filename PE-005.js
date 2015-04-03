@@ -1,20 +1,3 @@
-function smallest_evenly_divisible(n)
-{
-	var a=n;	
-	while(true)
-	{
-		var m=n;		
-		while (a%m==0)
-		{			
-			m--;			
-			if(m==1)
-			{
-				return a;
-			}
-		}
-		a+=n;
-	}
-}
 function factorize(n) {
  var min_factor = least_factor(n);
  if (n==min_factor) return ''+n;
@@ -52,7 +35,28 @@ function multiply_missing_factors(a_factorized,n)
 		}
 	}
 }
-function smallest_evenly_divisible2(n)
+function smallest_evenly_divisible(n)
+{
+	return smallest_evenly_divisible_v2(n);
+}
+function smallest_evenly_divisible_v1(n)
+{
+	var a=n;	
+	while(true)
+	{
+		var m=n;		
+		while (a%m==0)
+		{			
+			m--;			
+			if(m==1)
+			{
+				return a;
+			}
+		}
+		a+=n;
+	}
+}
+function smallest_evenly_divisible_v2(n)
 {
 	var a_factors={};
 	a_factors[1]=1;

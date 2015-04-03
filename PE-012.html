@@ -2,7 +2,7 @@
 <head>
 <script type="text/javascript" src="jquery-2.1.3.min.js"></script>
 <script type="text/javascript" src="functions.js"></script>
-<script type="text/javascript" src="PE-004.js"></script>
+<script type="text/javascript" src="PE-012.js"></script>
 <style>
 input
 {
@@ -14,11 +14,11 @@ input
 	<center style="margin-top:300px;">
 		<div>
 			<center>
-				<h3>Problem 4 - Largest palindrome product of 2 n-digit numbers</h3>
+				<h3>Problem 12 - Lowest triangular number with over n divisors</h3>
 			</center>
 			<input type="text" placeholder="Input n" value="" id="n"/>			
 			<br/>
-			<input type="button" value="Largest palindrome product" onclick="show_largest_palindrome_product();">
+			<input type="button" value="Find Triangular Number" onclick="show_lowest_divisible_triangular();">
 			<br/>
 			Result: <input type="text" value="" id="result" disabled/>
 			<br/>
@@ -28,11 +28,11 @@ input
 </body>
 </html>
 <script>
-	function show_largest_palindrome_product()
+	function show_lowest_divisible_triangular()
 	{
 		var n=$('#n').val();				
 		var start = window.performance.now();
-		var result=largest_palindrome_product(parseInt(n));
+		var result=lowest_divisible_triangular(parseInt(n));
 		$('#result').val(result);
 		$('#time').val(format_time((window.performance.now()-start)));
 	}

@@ -30,7 +30,7 @@ input
 	function show_smallest_evenly_divisible(n)
 	{
 		var start = window.performance.now();
-		var result=smallest_evenly_divisible2(parseInt(n));
+		var result=smallest_evenly_divisible(parseInt(n));
 		$('#result').val(result);
 		$('#time').val(format_time((window.performance.now()-start)));
 	}
