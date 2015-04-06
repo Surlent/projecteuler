@@ -1,3 +1,32 @@
+function readSingleFile(evt) 
+{
+	var f = evt.target.files[0]; 
+	if (f) {
+	  var r = new FileReader();
+	  r.onload = function(e) { 
+		  var contents = e.target.result; 
+		  $("#input").val(contents);
+		  resize_text_area($("#input"));
+	  }
+	  r.readAsText(f);
+	} else { 
+	  console.log("Failed to load file");
+	}
+}
+function resize_text_area(object)
+{
+	if(object.val()!="")
+	{
+		var pre_matrix=object.val().split("\n");
+		var matrix=new Array(pre_matrix.length-1);
+		for(var i=0;i<pre_matrix.length-1;i++)
+		{
+			matrix[i]=pre_matrix[i].split(" ");
+		}		
+		object.attr("rows",matrix.length);
+		object.css("width",matrix[0].length*30+"px");
+	}
+}	
 function format_time(time)
 {
 	var split_time=time.toString().split(".");
@@ -168,3 +197,4 @@ function count_divisors(n)
 	}
 	return result;
 }
+

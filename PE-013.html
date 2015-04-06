@@ -2,7 +2,7 @@
 <head>
 <script type="text/javascript" src="jquery-2.1.3.min.js"></script>
 <script type="text/javascript" src="functions.js"></script>
-<script type="text/javascript" src="PE-011.js"></script>
+<script type="text/javascript" src="PE-013.js"></script>
 <style>
 input
 {
@@ -14,15 +14,13 @@ input
 	<center style="margin-top:300px;">
 		<div>
 			<center>
-				<h3>Problem 11 - Highest Product of N Numbers on Grid</h3>
+				<h3>Problem 13 - Large Sum of Numbers</h3>
 			</center>
 			<input type="file"/ id="file_input">
 			<br/>
 			<textarea placeholder="Input grid" id="input" onblur="resize_text_area($(this));"/></textarea>
 			<br/>
-			<input type="text" style="width:50px;" placeholder="N" id="N"/>
-			<br/>
-			<input type="button" value="Show Highest Product" onclick="show_highest_product_grid();">
+			<input type="button" value="Large Sum" onclick="show_large_sum();">
 			<br/>
 			Result: <input type="text" value="" id="result" readonly/>
 			<br/>
@@ -37,19 +35,12 @@ input
 	} else {
 	  console.log('The File APIs are not fully supported by your browser.');
 	}
-	function show_highest_product_grid()
+	function show_large_sum()
 	{
-		var n=$("#N").val();
 		var start = window.performance.now();
-		var pre_matrix=$("#input").val().split("\n");
-		var matrix=new Array(pre_matrix.length-1);
-		for(var i=0;i<pre_matrix.length-1;i++)
-		{
-			matrix[i]=pre_matrix[i].split(" ");
-		}		
-		var result=highest_product_grid(matrix,parseInt(n));
-		$('#result').val(result[0]);
-		console.log(result[1]);
+		var numbers=$("#input").val().split("\n");
+		var result=large_sum(numbers);
+		$('#result').val(result);
 		$('#time').val(format_time((window.performance.now()-start)));
 	}
 </script>
