@@ -48,8 +48,7 @@ input
 			{
 				triangle[k][i]=parseInt(numbers[i]);
 			}
-		}
-		console.log(triangle);
+		}		
 		var result=max_path_sum(triangle);
 		$('#result').val(result);
 		$('#time').val(format_time((window.performance.now()-start)));
