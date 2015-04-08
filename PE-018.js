@@ -1,23 +1,4 @@
-function path_sum(triangle,n,i)
-{	
-	var increase=0;
-	if(n==1){
-			increase=triangle[0][0];
-	}
-	else if(i==0)
-	{
-			increase=path_sum(triangle,n-1,i);
-	}
-	else if(i==n)
-	{
-			increase=path_sum(triangle,n-1,i-1);
-	}
-	else
-	{
-			increase=Math.max(path_sum(triangle,n-1,i-1),path_sum(triangle,n-1,i));
-	}
-	return triangle[n][i]+increase;
-}
+
 function path(triangle,n,i)
 {
 	var chosen_index=-1;
@@ -53,6 +34,38 @@ function max_path_sum(triangle)
 	var max_sum=0;
 	var last_row_index=triangle.length-1;
 	var last_pair=[];
+	var memo={};
+	for(var i=0;i<triangle.length;i++)
+	{
+		memo[i]={};
+	}
+	var path_sum=function path_sum(triangle,n,i)
+			{	
+				var increase=0;
+				if(memo[n][i])
+				{
+					return memo[n][i];
+				}
+				else
+				{
+					if(n==1){
+							increase=triangle[0][0];
+					}
+					else if(i==0)
+					{
+							increase=path_sum(triangle,n-1,i);
+					}
+					else if(i==n)
+					{
+							increase=path_sum(triangle,n-1,i-1);
+					}
+					else
+					{
+							increase=Math.max(path_sum(triangle,n-1,i-1),path_sum(triangle,n-1,i));
+					}
+					return (memo[n][i]=triangle[n][i]+increase);
+				}								
+			}
 	for (var i=0;i<triangle[last_row_index].length;i++)
 	{
 		var sum=path_sum(triangle,last_row_index,i);
