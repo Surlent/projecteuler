@@ -24,7 +24,7 @@ function resize_text_area(object)
 			matrix[i]=pre_matrix[i].split(" ");
 		}		
 		object.attr("rows",matrix.length);
-		object.css("width",matrix[0].length*30+"px");
+		//object.css("width",matrix[0].length*30+"px");
 	}
 }	
 function format_time(time)
