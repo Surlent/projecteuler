@@ -48,8 +48,7 @@ input
 			matrix[i]=pre_matrix[i].split(" ");
 		}		
 		var result=highest_product_grid(matrix,parseInt(n));
-		$('#result').val(result[0]);
-		console.log(result[1]);
+		$('#result').val(result);
 		$('#time').val(format_time((window.performance.now()-start)));
 	}
 </script>

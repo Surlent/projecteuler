@@ -19,6 +19,10 @@ function sum_multiples_fibonacci(n,factors)
 		f_curr=f_curr+f_prev;
 		f_prev=f_curr_old;
 	}
-	console.log(list);
+	//console.log(list);
 	return sum;
+}
+function sum_multiples_fibonacci_2(n)
+{
+	return sum_multiples_fibonacci(n,"2");
 }

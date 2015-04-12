@@ -8,3 +8,8 @@ function large_sum(numbers)
 	return sum;
 	//return numbers.reduce(function(a,b){return parseInt(a)+parseInt(b);}); LOST PRECISION
 }
+
+function large_sum_2(matrix)
+{
+	return large_sum(matrix.split("\n"));
+}

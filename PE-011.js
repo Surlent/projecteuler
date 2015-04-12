@@ -76,5 +76,17 @@ function highest_product_grid(matrix,n)
 			}
 		}
 	}
-	return [highest_product,best_indexes];
+	console.log(best_indexes);
+	return highest_product;
+}
+
+function highest_product_grid_4(input)
+{
+	var pre_matrix=input.split("\n");
+	var matrix=new Array(pre_matrix.length-1);
+	for(var i=0;i<pre_matrix.length-1;i++)
+	{
+		matrix[i]=pre_matrix[i].split(" ");
+	}	
+	return highest_product_grid(matrix,4);
 }

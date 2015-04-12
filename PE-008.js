@@ -5,8 +5,7 @@ function greatest_adjacent_product(number,n)
 	var numbers=[];
 	for(var k=0;k<=number_str.length-n;k++)
 	{
-		var product=1;
-		
+		var product=1;		
 		for(var l=k;l<k+n;l++)
 		{
 			product*=parseInt(number_str[l]);
@@ -21,6 +20,11 @@ function greatest_adjacent_product(number,n)
 			}			
 		}
 	}
-	console.log(numbers);
+	//console.log(numbers);
 	return greatest_product;
+}
+
+function greatest_adjacent_product_13(number)
+{
+	return greatest_adjacent_product(number,13);
 }

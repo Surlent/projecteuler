@@ -42,7 +42,7 @@ function format_time(time)
 		}
 		else return significand+","+mantissa+"ms";
 	}
-	else return split_time;
+	else return time;
 }
 function is_prime(n)
 {
@@ -212,15 +212,4 @@ function $_GET(q,s) {
     s = s || window.location.search;
     var re = new RegExp('&'+q+'=([^&]*)','i');
     return (s=s.replace(/^\?/,'&').match(re)) ? s=s[1] : s='';
-}
-function solve_problem(problem,input)
-{	
-	switch(problem)
-	{
-		case "001":
-		{
-			alert(sum_multiples(10,"3,5"));
-			break;
-		}
-	}	
 }

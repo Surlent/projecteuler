@@ -17,3 +17,7 @@ function sum_multiples(n,factors)
 	//console.log(list);
 	return sum;
 }
+function sum_multiples_3_5(n)
+{
+	return sum_multiples(n,"3,5");
+}

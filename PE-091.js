@@ -1,6 +1,6 @@
 function count_right_triangles(n)
 {
-	return count_right_triangles_v1(n);
+	return count_right_triangles_v1(parseInt(n));
 }
 function count_right_triangles_v1(n)
 {

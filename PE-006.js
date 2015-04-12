@@ -22,3 +22,7 @@ function diff_sum_power(n,power)
 {
 	return power_of_sum(n,power)-sum_of_powers(n,power);
 }
+function diff_sum_power_2(n)
+{
+	return diff_sum_power(parseInt(n),2);
+}

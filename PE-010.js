@@ -1,8 +1,10 @@
 function sum_primes(n)
 {
+	n=parseInt(n);
 	var primes=primes_list(n);
 	var sum=0;
-	for(var i=0;i<primes.length;i++)
+	var primes_length=primes.length;
+	for(var i=0;i<primes_length;i++)
 	{
 		sum+=primes[i];
 	}

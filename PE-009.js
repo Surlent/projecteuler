@@ -21,6 +21,7 @@ function greatest_common_denominator(a, b)
 }
 function pythagorean_triplet(sum)
 {
+	sum=parseInt(sum);
 	var k=1;
 	//for(var k=1;k<sum;k++)
 	//{

@@ -9,7 +9,7 @@ function largest_palindrome_product(n)
 	{
 		if(2*i<current_sum)
 		{
-			console.log(numbers);
+			//console.log(numbers);
 			return largest_product;
 		}
 		for(var j=i-1;j>=first;j--)
@@ -28,6 +28,6 @@ function largest_palindrome_product(n)
 			}
 		}
 	}
-	console.log(numbers);
+	//console.log(numbers);
 	return largest_product;
 }

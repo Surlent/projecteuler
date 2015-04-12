@@ -37,19 +37,8 @@ input
 	}
 	function show_max_path_sum()
 	{
-		var start = window.performance.now();
-		var rows=$("#input").val().split("\n");
-		var triangle=[];
-		for(var k=0;k<rows.length;k++)
-		{
-			var numbers=rows[k].split(" ");
-			triangle[k]=[];
-			for(var i=0;i<numbers.length;i++)
-			{
-				triangle[k][i]=parseInt(numbers[i]);
-			}
-		}		
-		var result=max_path_sum(triangle);
+		var start = window.performance.now();			
+		var result=max_path_sum(input);
 		$('#result').val(result);
 		$('#time').val(format_time((window.performance.now()-start)));
 	}
