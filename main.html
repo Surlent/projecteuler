@@ -1,0 +1,45 @@
+<html>
+<head>
+<script type="text/javascript" src="jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="functions.js"></script>
+<script>
+var problem=$_GET("p");
+load_js("PE-"+problem+".js");
+</script>
+<style>
+input
+{
+	margin:10px 0;
+}
+</style>
+</head>
+<body>
+	<center style="margin-top:100px;">
+		<div>
+			<center>
+				<h3>Problem Processor</h3>
+			</center>
+			<input type="text" placeholder="Problem number" value="" id="problem"/>
+			<br/>
+			<input type="file" id="file_input">
+			<br/>
+			<textarea placeholder="Inputs" id="input"/></textarea>	
+			<br/>		
+			<input type="button" value="Max Path Sum" onclick="solve_problem(problem,$('#input').val());">
+			<br/>
+			<table id="results">
+				<script>
+
+				</script>
+			</table>
+		</div>
+	</center>
+</body>
+</html>
+<script>
+	if (window.File && window.FileReader && window.FileList && window.Blob) {
+	  document.getElementById('file_input').addEventListener('change', readSingleFile, false);
+	} else {
+	  console.log('The File APIs are not fully supported by your browser.');
+	}
+</script>

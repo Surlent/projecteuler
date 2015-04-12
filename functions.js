@@ -6,7 +6,7 @@ function readSingleFile(evt)
 	  r.onload = function(e) { 
 		  var contents = e.target.result; 
 		  $("#input").val(contents);
-		  resize_text_area($("#input"));
+		  //resize_text_area($("#input"));
 	  }
 	  r.readAsText(f);
 	} else { 
@@ -198,3 +198,29 @@ function count_divisors(n)
 	return result;
 }
 
+function load_js(filename){    
+        var fileref=document.createElement('script');
+        fileref.setAttribute("type","text/javascript");
+        fileref.setAttribute("src", filename);        
+        if (typeof fileref!="undefined")
+        {        	
+        	document.getElementsByTagName("head")[0].appendChild(fileref);
+        	console.log("File "+filename+" loaded.");
+        }        
+}
+function $_GET(q,s) {
+    s = s || window.location.search;
+    var re = new RegExp('&'+q+'=([^&]*)','i');
+    return (s=s.replace(/^\?/,'&').match(re)) ? s=s[1] : s='';
+}
+function solve_problem(problem,input)
+{	
+	switch(problem)
+	{
+		case "001":
+		{
+			alert(sum_multiples(10,"3,5"));
+			break;
+		}
+	}	
+}
