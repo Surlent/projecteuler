@@ -1,0 +1,39 @@
+<html>
+<head>
+<script type="text/javascript" src="jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="functions.js"></script>
+<script type="text/javascript" src="PE-014.js"></script>
+<style>
+input
+{
+	margin:10px 0;
+}
+</style>
+</head>
+<body>
+	<center style="margin-top:300px;">
+		<div>
+			<center>
+				<h3>Problem 14 - Longest Collatz sequence with starting number below n</h3>
+			</center>
+			<input type="text" placeholder="Input n" value="" id="n"/>			
+			<br/>
+			<input type="button" value="Find Longest Collatz Sequence" onclick="show_longest_collatz_sequence();">
+			<br/>
+			Result: <input type="text" value="" id="result" readonly/>
+			<br/>
+			Time: <input type="text" value="" id="time" readonly/>
+		</div>
+	</center>
+</body>
+</html>
+<script>
+	function show_longest_collatz_sequence()
+	{
+		var n=$('#n').val();				
+		var start = window.performance.now();
+		var result=longest_collatz_sequence(parseInt(n));
+		$('#result').val(result);
+		$('#time').val(format_time((window.performance.now()-start)));
+	}
+</script>
