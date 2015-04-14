@@ -18,7 +18,7 @@ input
 			</center>
 			<input type="text" placeholder="Input n" value="" id="n"/>			
 			<br/>
-			<input type="text" placeholder="Characters" value="" id="characters"/>			
+			<input type="text" placeholder="Input k" value="" id="k"/>			
 			<br/>
 			<input type="button" value="Find nth lexicographic permutation" onclick="show_lexicographic_permutation();">
 			<br/>
@@ -33,9 +33,9 @@ input
 	function show_lexicographic_permutation()
 	{
 		var n=parseInt($('#n').val());
-		var characters=$('#characters').val().split(",");				
+		var k=parseInt($('#k').val());				
 		var start = window.performance.now();
-		var result=find_nth_permutation(characters,n);
+		var result=find_nth_permutation(n,k);
 		$('#result').val(result);
 		$('#time').val(format_time((window.performance.now()-start)));
 	}
