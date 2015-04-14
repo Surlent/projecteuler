@@ -2,7 +2,7 @@
 <head>
 <script type="text/javascript" src="jquery-2.1.3.min.js"></script>
 <script type="text/javascript" src="functions.js"></script>
-<script type="text/javascript" src="PE-014.js"></script>
+<script type="text/javascript" src="PE-015.js"></script>
 <style>
 input
 {
@@ -14,11 +14,15 @@ input
 	<center style="margin-top:300px;">
 		<div>
 			<center>
-				<h3>Problem 14 - Longest Collatz sequence with starting number below n</h3>
+				<h3>Problem 15 - Lattice paths</h3>
 			</center>
+			<input type="text" placeholder="Input m" value="" id="m"/>			
+			<br/>
 			<input type="text" placeholder="Input n" value="" id="n"/>			
 			<br/>
-			<input type="button" value="Find Longest Collatz Sequence" onclick="show_longest_collatz_sequence();">
+			<input type="text" placeholder="Input limitant" value="" id="k"/>			
+			<br/>
+			<input type="button" value="Count Paths" onclick="show_lattice_paths();">
 			<br/>
 			Result: <input type="text" value="" id="result" readonly/>
 			<br/>
@@ -28,11 +32,13 @@ input
 </body>
 </html>
 <script>
-	function show_longest_collatz_sequence()
+	function show_lattice_paths()
 	{
-		var n=$('#n').val();				
+		var m=$('#m').val();
+		var n=$('#n').val();
+		var k=$('#k').val();		
 		var start = window.performance.now();
-		var result=longest_collatz_sequence(parseInt(n));
+		var result=lattice_paths(m,n,k-1);
 		$('#result').val(result);
 		$('#time').val(format_time((window.performance.now()-start)));
 	}

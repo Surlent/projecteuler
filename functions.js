@@ -42,7 +42,7 @@ function format_time(time)
 		}
 		else return significand+","+mantissa+"ms";
 	}
-	else return time;
+	else return time+"ms";
 }
 function is_prime(n)
 {
