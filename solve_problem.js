@@ -117,6 +117,11 @@ function solve_problem(problem,input)
 				func=max_path_sum;
 				break;
 			}
+			case "024":
+			{
+				func=find_nth_permutation;
+				break;
+			}
 			case "091":
 			{
 				func=count_right_triangles;
