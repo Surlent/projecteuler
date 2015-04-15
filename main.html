@@ -9,7 +9,14 @@ if(!problem)
 {
 	alert("Passe o parâmetro p por GET.");
 }
-load_js("PE-"+problem+".js");
+else
+{
+	while(problem.length<3)
+	{
+		problem="0"+problem;
+	}
+	load_js("PE-"+problem+".js");
+}
 </script>
 <style>
 input

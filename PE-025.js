@@ -1,5 +1,6 @@
 function first_n_digit_fibonacci(n)
 {
+	n=parseInt(n);
 	var sum=0;
 	var f_prev=0;
 	var f_curr=1;
@@ -28,11 +29,12 @@ function first_n_digit_fibonacci(n)
 		expo_prev=expo_curr_old;
 		i++;		
 	}
-	return [i,f_curr,expo_curr];
+	return i;
 }
 
 function first_n_digit_fibonacci_low(n)
 {
+	n=parseInt(n);
 	var memo={};
 	var fib=function(k)
 	{		

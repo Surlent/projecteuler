@@ -15,6 +15,8 @@ function solve_problem(problem,input)
 			case "010":
 			case "012":
 			case "014":
+			case "024":
+			case "025":
 			case "091":
 			{
 				inputs=input.split("\n");
@@ -29,7 +31,7 @@ function solve_problem(problem,input)
 			}
 			case "011":
 			case "013":
-			case "018":
+			case "018":			
 			case "067":
 			{
 				inputs=input.split("\n\n");				
@@ -120,6 +122,11 @@ function solve_problem(problem,input)
 			case "024":
 			{
 				func=find_nth_permutation;
+				break;
+			}
+			case "025":
+			{
+				func=first_n_digit_fibonacci;
 				break;
 			}
 			case "091":
